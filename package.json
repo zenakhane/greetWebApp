@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +18,4 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3"
   }
-  
 }
