@@ -26,26 +26,24 @@ app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
     res.render("index", {
-       lang:  greetings.greetMessage()
+       lang:  greetings.greetMessage(),
+       name:  greetings.getnameGreetNow(),
        
     })
 });
 
 app.get('/counter', function (req, res) {
+
+    greetings.setNameCount({
+
+        
+    })
     res.render('/greet')
 });
 
 app.post('/counter', function (req, res) {
     res.redirect('/')
 });
-
-// app.get('/', function (req, res) {
-//     res.render('index')
-// })
-
-// app.post('/', function (req, res) {
-//     res.redirect('/')
-// })
 
 const PORT = process.env.PORT || 2089
 app.listen(PORT, function () {

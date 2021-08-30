@@ -16,37 +16,41 @@
    <div class="error">
    </div>
    <div class="nameBox">
-       <form action="/greet" method="POST">
-      <label for="name"> Enter a name here:</label>
-      <input type="text" id="name1" name="name1" class="name1">
+      <form action="/greet" method="POST">
+         <label for="name"> Enter a name here:</label>
+         <input type="text" id="name1" name="name1" class="name1">
       </form><br><br>
       <div class="languages">
+         <form action="/greet" method="POST"></form>
          <label for="langs">English</label>
          <input type="radio" id="English" name="langs" value="English">
-        
+
          <label for="langs">IsiXhosa</label>
          <input type="radio" id="IsiXhosa" name="langs" value="IsiXhosa">
          <label for="langs">IsiZulu</label>
          <input type="radio" id="IsiZulu" name="langs" value="IsiZulu">
-         
-         <div class="counter">
-            0
-         </div>
-         
+         <form action="/counter" method="POST">
+            <div class="counter">
+               0
+            </div>
+         </form>
+
       </div>
-     
+
    </div>
    <div class="greetingBox">
       <span>
-         <button class="Greet_me">Click here to greet</button>
+         <form action="/counter" method="POST">
+            <button type="submit" class="Greet_me">Click here to greet</button>
       </span>
       <span>
-         <button class="reset">Reset</button>
-
+         <button type="reset" class="reset">Reset</button>
+         </form>
       </span>
       </form>
    </div>
    <div class="greetme">
    </div>
 </body>
+
 </html>

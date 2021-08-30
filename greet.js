@@ -23,7 +23,7 @@ module.exports = function Greetings() {
     }
 
     function setNames(name) {
-        name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        // name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
         if (!namesGreetedList.includes(name)) {
             nameGreetNow++
             namesGreetedList.push(name)
