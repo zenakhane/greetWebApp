@@ -20,6 +20,7 @@
          <label for="name"> Enter a name here:</label>
          <input type="text" id="name1" name="name1" class="name1">
       </form><br><br>
+
       <div class="languages">
          <form action="/greet" method="POST"></form>
          <label for="langs">English</label>
@@ -29,6 +30,8 @@
          <input type="radio" id="IsiXhosa" name="langs" value="IsiXhosa">
          <label for="langs">IsiZulu</label>
          <input type="radio" id="IsiZulu" name="langs" value="IsiZulu">
+
+
          <form action="/counter" method="POST">
             <div class="counter">
                0
@@ -38,6 +41,7 @@
       </div>
 
    </div>
+
    <div class="greetingBox">
       <span>
          <form action="/counter" method="POST">
@@ -50,6 +54,7 @@
       </form>
    </div>
    <div class="greetme">
+      {{greet}}
    </div>
 </body>
 
