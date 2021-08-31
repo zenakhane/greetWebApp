@@ -34,10 +34,11 @@ app.use(session({
 
   app.use(flash());
 
- app.get('/counter', function (req, res) {
+ app.get('/', function (req, res) {
     req.flash('info', 'Welcome');
     res.render('index', {
       title: 'Home'
+      // greetname : greetings.greetMessage
     })
   });
   app.get('/addFlash', function (req, res) {
@@ -46,19 +47,22 @@ app.use(session({
   });
 // app.get('/counter', function (req, res) {
 //     res.render('/greet')
-// });
+// });  
 
-app.post('/counter', function (req, res) {
-    let name = req.body.langs
-    let lang = req.body.langs
-    greetings.greetMessage(name, lang);
-    greetings.getNamesList();
-    // gre
-    res.render('index', {greet: greetings.getNamesList()})
-    // res.redirect('/')
+app.post('/counter', function (req, res) { 
+    let theName = req.body.nameVal; 
+    let lang = req.body.langs; 
+   
+    
+    res.render('index', {greet: greetings.greetMessage(theName, lang)})
+    
 });
+
+app.post('/counter/user', function(req, res){
+  res.render('index', {greet: greetings.getNamesList()} )
+})
 
 const PORT = process.env.PORT || 2089
 app.listen(PORT, function () {
-    console.log("App started at port:", PORT)
+    console.log("App started at port:", PORT) 
 });
