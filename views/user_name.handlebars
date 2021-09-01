@@ -3,8 +3,8 @@
 
 
 </div>
-{{#if messages.info}}
+{{#each names}}
 <div class="entry">
-    <h1> {{messages.info}}</h1>
+    <h1> {{this}}</h1>
 </div>
-{{/if}}
+{{/each}}

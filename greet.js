@@ -4,39 +4,36 @@ module.exports = function Greetings() {
 
 
 
-    function greetMessage(name, lang) {
+    function greetMessage(theName, lang) {
 
-        // name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-
+        theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
+        setNames(theName)
         if (lang === "English") {
-            return "Hello, " + name;
-
+            return "Hello, " + theName;
         }
         else if (lang === "IsiXhosa") {
-            return "Molo, " + name;
-
+            return "Molo, " + theName;
         }
         else if (lang === "IsiZulu") {
-            return "Sawubona, " + name;
-
+            return "Sawubona, " + theName;
         }
     }
 
-    function setNames(name) {
-        // name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-        if (!namesGreetedList.includes(name)) {
+    function setNames(theName) {
+        // theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
+        if (!namesGreetedList.includes(theName)) {
             nameGreetNow++
-            namesGreetedList.push(name)
-            return true
+            namesGreetedList.push(theName)
         }
 
     }
+
     function setNameCount() {
         return namesGreetedList.length;
     }
 
-    function setNamesGreetedList(name) {
-        namesGreetedList = name
+    function setNamesGreetedList(theName) {
+        namesGreetedList = theName
     }
 
     function getNamesList() {
@@ -47,12 +44,22 @@ module.exports = function Greetings() {
         return nameGreetNow
     }
 
+    function greetErrors(theName, lang){
+         if (theName == '') {
+            return "Oh-oh no name entered!!"
+        }
+        else if(lang == "") {
+            return  "Oh-oh you did not choose a language!"
+        }
+    }
+
     return {
         greetMessage,
         getnameGreetNow,
         getNamesList,
         setNames,
         setNameCount,
-        setNamesGreetedList
+        setNamesGreetedList,
+        greetErrors
     }
 }

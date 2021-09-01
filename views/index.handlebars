@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-      <link rel="stylesheet" href="./style.css">
-   </head>
-   <div class="box1">
-      <p class="heading">Greet Web App </p>
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <div class="error">
+      {{errors}}
    </div>
-   <body>
-      <div class="error">
-      </div>
-      <div class="nameBox">
-         <form action="/counter" method="POST">
-            <label for="name11"> Enter a name here:</label>
-            <input type="text" id="name11" name="nameVal" value="" class="name11">
-            <br><br>
-            <div class="languages">
-               <label for="langs">English</label>
-               <input type="radio" id="English" name="langs" value="English">
-               <label for="langs">IsiXhosa</label>
-               <input type="radio" id="IsiXhosa" name="langs" value="IsiXhosa">
-               <label for="langs">IsiZulu</label>
-               <input type="radio" id="IsiZulu" name="langs" value="IsiZulu"><br><br>
-               <div class="counter">
-                  0
-               </div>
-            </div>
-      </div>
-      <div class="greetingBox">
-      <span>
-         <button type="submit" class="Greet_me">Click here to greet</button>
+   <div class="nameBox">
+      <h3 >Greet Web App </h3>
+      <form action="/counter" method="POST">
+         <label for="name11"> Enter a name here:</label>
+         <input type="text" id="name11" name="nameVal" value="" class="name11">
+         <br><br>
+         <div class="languages">
+            <label for="language">English</label>
+            <input type="radio" id="English" name="language" value="English">
+            <label for="language">IsiXhosa</label>
+            <input type="radio" id="IsiXhosa" name="language" value="IsiXhosa">
+            <label for="language">IsiZulu</label>
+            <input type="radio" id="IsiZulu" name="language" value="IsiZulu"><br><br>
+            <button type="submit" class="Greet_me">Click here to greet</button>
+            <span>
+         {{count}}
       </span>
+         </div>
+ </form>
+   </div>
+   <div class="greetingBox">
+      
       <span>
-      <button type="reset" class="reset">Reset</button>
+         <button type="reset" class="reset">Reset</button>
+      </span><br><br>
+      <span>
+         <div class="greetList">
+            <a href="/names">Names Greeted</a>
+         </div>
+
       </span>
-      </form>
-      </div>
-      <div class="greetme">
-         {{greet}}
-      </div>
-   </body>
+      {{!-- <div class="nameCounter">
+         {{count}}
+      </div> --}}
+
+     
+   </div>
+   <div class="greetme">
+      {{greet}}
+   </div>
+</body>
+
 </html>

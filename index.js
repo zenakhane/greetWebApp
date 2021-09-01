@@ -37,7 +37,8 @@ app.use(session({
  app.get('/', function (req, res) {
     req.flash('info', 'Welcome');
     res.render('index', {
-      title: 'Home'
+      title: 'Home',
+      count: greetings.getnameGreetNow()
       // greetname : greetings.greetMessage
     })
   });
@@ -45,21 +46,24 @@ app.use(session({
     req.flash('info', 'Flash Message Added');
     res.redirect('/');
   });
-// app.get('/counter', function (req, res) {
-//     res.render('/greet')
-// });  
+
 
 app.post('/counter', function (req, res) { 
     let theName = req.body.nameVal; 
-    let lang = req.body.langs; 
-   
-    
-    res.render('index', {greet: greetings.greetMessage(theName, lang)})
-    
+    let lang = req.body.language; 
+    res.render('index', {greet: greetings.greetMessage(theName, lang) , 
+      count: greetings.getnameGreetNow(),
+      errors: greetings.greetErrors(theName, lang)
+    })
 });
 
-app.post('/counter/user', function(req, res){
-  res.render('index', {greet: greetings.getNamesList()} )
+app.get('/names', function(req, res){
+  var greetedList = greetings.getNamesList()
+  greetedList.forEach(element => {
+    element.currentTime = moment(element.timestamp).fromNow()
+  })
+  console.log(greetedList)
+  res.render('user_name', {names:greetedList})
 })
 
 const PORT = process.env.PORT || 2089
