@@ -4,8 +4,8 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser')
 const Greetings = require("./greet")
-const moment = require("moment")
-moment().format()
+// const moment = require("moment")
+// moment().format()
 const app = express()
 
 const  greetings = Greetings()
@@ -59,9 +59,9 @@ app.post('/counter', function (req, res) {
 
 app.get('/names', function(req, res){
   var greetedList = greetings.getNamesList()
-  greetedList.forEach(element => {
-    element.currentTime = moment(element.timestamp).fromNow()
-  })
+  // greetedList.forEach(element => {
+  //   element.currentTime = moment(element.timestamp).fromNow()
+  // })
   console.log(greetedList)
   res.render('user_name', {names:greetedList})
 })
