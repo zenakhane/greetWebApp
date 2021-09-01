@@ -48,7 +48,7 @@ module.exports = function Greetings() {
          if (theName == '') {
             return "Oh-oh no name entered!!"
         }
-        else if(lang == "") {
+        else {
             return  "Oh-oh you did not choose a language!"
         }
     }
