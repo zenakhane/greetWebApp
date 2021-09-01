@@ -25,7 +25,7 @@ body {
     padding: 1em 1em 1em 1em;
     border-radius: 19px 19px 19px 19px;
     font-family: Brush Script MT, Brush Script Std, cursive;
-    /* background-color: linen; */
+  background-color: linen;
 }
 
 .languages input[type="radio"] {
