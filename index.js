@@ -59,14 +59,14 @@ app.post('/counter', function (req, res) {
 
 app.get('/names', function(req, res){
   var greetedList = greetings.getNamesList()
-  // greetedList.forEach(element => {
-  //   element.currentTime = moment(element.timestamp).fromNow()
-  // })
+
   console.log(greetedList)
   res.render('user_name', {names:greetedList})
 })
+app.get('/counter/user_name')
 
 const PORT = process.env.PORT || 2089
 app.listen(PORT, function () {
     console.log("App started at port:", PORT) 
 });
+

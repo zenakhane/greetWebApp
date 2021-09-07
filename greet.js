@@ -2,10 +2,7 @@ module.exports = function Greetings() {
     var namesGreetedList = []
     var nameGreetNow = 0
 
-
-
     function greetMessage(theName, lang) {
-
         theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
         setNames(theName)
         if (lang === "English") {
@@ -18,6 +15,7 @@ module.exports = function Greetings() {
             return "Sawubona, " + theName;
         }
     }
+
 
     function setNames(theName) {
         // theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
@@ -44,19 +42,24 @@ module.exports = function Greetings() {
         return nameGreetNow
     }
 
-    function greetErrors(theName){
-         if (theName == '') {
-            return "Oh-oh no name entered!!"
-        } 
+    
+    function greetErrors(theName, lang) {
+        if (theName == '' && lang == undefined) {
+            return 'Welcome!!'
+        }
+        else if (theName == '') {
+            return 'No name entered!!'
+        } else if (lang == undefined) {
+        return 'Please select a language'
     }
-
-    return {
-        greetMessage,
-        getnameGreetNow,
-        getNamesList,
-        setNames,
-        setNameCount,
-        setNamesGreetedList,
-        greetErrors
-    }
+}
+return {
+    greetMessage,
+    getnameGreetNow,
+    getNamesList,
+    setNames,
+    setNameCount,
+    setNamesGreetedList,
+    greetErrors
+}
 }

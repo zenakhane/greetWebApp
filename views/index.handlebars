@@ -14,35 +14,44 @@
       {{errors}}
    </div>
    <div class="nameBox">
-      <h3>Greet Web App </h3>
-      <form action="/counter" method="POST">
-         <label for="name11"> Enter a name here:</label>
-         <input type="text" id="name11" name="nameVal" value="" class="name11">
-         <br><br>
-         <div class="languages">
+      <h2>Greetings  WebApp </h2><br><br>
+{{!-- <div class="extraInfo">
+   <p class="Infomation">
+      Xhosa have traditionally used greeting to show respect and good intentions to others,
+      it is also a formal expression of goodwill said on meeting or in written message.
+   </p>
 
-            <label for="language">English</label>
-            <input type="radio" id="English" name="language" value="English">
-            <label for="language">IsiXhosa</label>
-            <input type="radio" id="IsiXhosa" name="language" value="IsiXhosa">
-            <label for="language">IsiZulu</label>
-            <input type="radio" id="IsiZulu" name="language" value="IsiZulu">
-            <span class="countered">
+</div> --}}
+
+      <form action="/counter" method="POST">
+
+       <span class="countered">
+               Counter:
                {{count}}
             </span><br><br>
-            <button type="submit" class="Greet_me">Click here to greet</button><br><br>
+         <label for="name11"> Enter a name here:</label>
+         <input type="text" id="name11" name="nameVal" value="" class="name11">
+         <br><br><br>
+         <div class="languages">
+            <input type="radio" id="English" name="language" value="English">
+            <label for="language">English</label>
+            <input type="radio" id="IsiXhosa" name="language" value="IsiXhosa">
+            <label for="language">IsiXhosa</label>
+            <input type="radio" id="IsiZulu" name="language" value="IsiZulu">
+            <label for="language">IsiZulu</label><br><br>
+            <button type="submit" class="Greet_me">Greet here</button><br><br>
          </div>
-     
    </div>
-    </form>
+   </form>
    <div class="greetingBox">
-        <input type="reset" value="Reset">
-         <div class="greetList">
-            <a href="/names">Names Greeted</a>
-         </div>
-   </div>
+     <button type="reset" class="reset">Reset</button><br><br>
+      <div class="greetList">
+         <a href="/names">Names Greeted</a>
+      </div>
+   </div><br><br>
    <div class="greetme">
       {{greet}}
    </div>
 </body>
+
 </html>
