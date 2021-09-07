@@ -44,13 +44,10 @@ module.exports = function Greetings() {
         return nameGreetNow
     }
 
-    function greetErrors(theName, lang){
+    function greetErrors(theName){
          if (theName == '') {
             return "Oh-oh no name entered!!"
-        }
-        if(lang == "") {
-            return  "Oh-oh you did not choose a language!"
-        }
+        } 
     }
 
     return {

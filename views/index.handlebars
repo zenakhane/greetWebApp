@@ -8,50 +8,41 @@
    <title>Document</title>
    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
    <div class="error">
       {{errors}}
    </div>
    <div class="nameBox">
-      <h3 >Greet Web App </h3>
+      <h3>Greet Web App </h3>
       <form action="/counter" method="POST">
          <label for="name11"> Enter a name here:</label>
          <input type="text" id="name11" name="nameVal" value="" class="name11">
          <br><br>
          <div class="languages">
+
             <label for="language">English</label>
             <input type="radio" id="English" name="language" value="English">
             <label for="language">IsiXhosa</label>
             <input type="radio" id="IsiXhosa" name="language" value="IsiXhosa">
             <label for="language">IsiZulu</label>
-            <input type="radio" id="IsiZulu" name="language" value="IsiZulu"><br><br>
-            <button type="submit" class="Greet_me">Click here to greet</button>
-            <span>
-         {{count}}
-      </span>
+            <input type="radio" id="IsiZulu" name="language" value="IsiZulu">
+            <span class="countered">
+               {{count}}
+            </span><br><br>
+            <button type="submit" class="Greet_me">Click here to greet</button><br><br>
          </div>
- </form>
+     
    </div>
+    </form>
    <div class="greetingBox">
-      
-      <span>
-         <button type="reset" class="reset">Reset</button>
-      </span><br><br>
-      <span>
+        <input type="reset" value="Reset">
          <div class="greetList">
             <a href="/names">Names Greeted</a>
          </div>
-
-      </span>
-      {{!-- <div class="nameCounter">
-         {{count}}
-      </div> --}}
-
-     
    </div>
    <div class="greetme">
       {{greet}}
    </div>
 </body>
-
 </html>

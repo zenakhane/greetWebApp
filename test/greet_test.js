@@ -51,6 +51,7 @@ describe('Counter', function () {
         message.setNames('Lakhe')
         message.setNames('Naomi')
         assert.equal(3, message.setNameCount())
+        
     })
     it('Should count how many names have been greeted', function () {
         var message = Greetings1()
