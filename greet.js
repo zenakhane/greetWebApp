@@ -42,11 +42,12 @@ module.exports = function Greetings() {
         return nameGreetNow
     }
 
-    
+
     function greetErrors(theName, lang) {
         if (theName == '' && lang == undefined) {
-            return 'Welcome!!'
+            return 'PLease enter a language and select a language'
         }
+        
         else if (theName == '') {
             return 'No name entered!!'
         } else if (lang == undefined) {
