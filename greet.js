@@ -45,9 +45,9 @@ module.exports = function Greetings() {
 
     function greetErrors(theName, lang) {
         if (theName == '' && lang == undefined) {
-            return 'PLease enter a language and select a language'
+            return 'PLease enter a name and select a language'
         }
-        
+
         else if (theName == '') {
             return 'No name entered!!'
         } else if (lang == undefined) {
