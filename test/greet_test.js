@@ -1,7 +1,16 @@
 let assert = require("assert");
 let Greetings1 = require("../greet");
+const { Pool} = require('pg');
 
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/mygreet';
+
+const pool = new Pool({
+    connectionString: connectionString,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+ const greeted = Greetings1(pool)
 
 describe('Greet', function () {
     it('Should show name greeted in IsiXhosa', function () {
