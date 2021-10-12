@@ -13,7 +13,7 @@ node_js:
 
 before_script:
   - psql -c 'create database  mygreet;' -U postgres
-  - psql -U postgres -d mygreet -a -f tables.sql
+  - psql -U postgres -d mygreet -a -f greet.sql
 
 services:
   - postgresql
