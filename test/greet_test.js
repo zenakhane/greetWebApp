@@ -1,7 +1,7 @@
 let assert = require("assert");
 let Greetings1 = require("../greet");
 
-
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/mygreet';
 
 describe('Greet', function () {
     it('Should show name greeted in IsiXhosa', function () {
