@@ -6,13 +6,13 @@ let Greetings1 = require("../greet");
 describe('Greet', function () {
     it('Should show name greeted in IsiXhosa', function () {
         var message = Greetings1()
-        message.setNames('Zena')
+        message.insertToTable('Zena')
         assert.equal(message.greetMessage("Zena", "IsiXhosa"), 'Molo, Zena',);
     });
 
     it('Should show name greeted in English', function () {
         var message = Greetings1()
-        message.setNames('Asive')
+        message.insertToTable('Asive')
         assert.equal(message.greetMessage("Asive", "English"), 'Hello, Asive');
 
 
@@ -20,7 +20,7 @@ describe('Greet', function () {
 
     it('Should show name greeted in IsiZulu', function () {
         var message = Greetings1()
-        message.setNames('Lakhe')
+        message.insertToTable('Lakhe')
         assert.equal(message.greetMessage("Lakhe", "IsiZulu"), 'Sawubona, Lakhe');
 
     });
@@ -28,12 +28,12 @@ describe('Greet', function () {
 describe('Set names', function () {
     it('Greet a name that has not been greeted', function () {
         var message = Greetings1()
-        message.setNames('Bob')
+        message.insertToTable('Bob')
         assert.equal(message.greetMessage("Bob", "IsiXhosa"), 'Molo, Bob',);
     });
     it('Greet a name that has not been greeted', function () {
         var message = Greetings1()
-        message.setNames('Naomi')
+        message.insertToTable('Naomi')
         assert.equal(message.greetMessage("Naomi", "English"), 'Hello, Naomi',);
 
     });
@@ -42,32 +42,32 @@ describe('Set names', function () {
 describe('Counter', function () {
     it('Should count how many names have been greeted', function () {
         var message = Greetings1()
-        message.setNames('Zena')
-        assert.equal(1, message.setNameCount())
+        message.insertToTable('Zena')
+        assert.equal(1, message.countNames())
     })
     it('Should count how many names have been greeted', function () {
         var message = Greetings1()
-        message.setNames('Zena')
-        message.setNames('Lakhe')
-        message.setNames('Naomi')
-        assert.equal(3, message.setNameCount())
+        message.insertToTable('Zena')
+        message.insertToTable('Lakhe')
+        message.insertToTable('Naomi')
+        assert.equal(3, message.countNames())
         
     })
     it('Should count how many names have been greeted', function () {
         var message = Greetings1()
-        message.setNames('Bob')
-        message.setNames('Zena')
-        message.setNames('Lakhe')
-        message.setNames('Naomi')
-        assert.equal(4, message.setNameCount())
+        message.insertToTable('Bob')
+        message.insertToTable('Zena')
+        message.insertToTable('Lakhe')
+        message.insertToTable('Naomi')
+        assert.equal(4, message.countNames())
     })
     it('Should not count a name twice', function(){
         var message = Greetings1()
-        message.setNames('Zena')
-        message.setNames('Zena')
-        message.setNames('Lakhe')
-        message.setNames('Naomi')
-        assert.equal(3, message.setNameCount())
+        message.insertToTable('Zena')
+        message.insertToTable('Zena')
+        message.insertToTable('Lakhe')
+        message.insertToTable('Naomi')
+        assert.equal(3, message.countNames())
 
     } )
 
