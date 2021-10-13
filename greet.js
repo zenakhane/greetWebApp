@@ -97,6 +97,15 @@ module.exports = function Greetings(pool) {
       }
   }
 
+  async function removeName(){
+try {await pool.query('delete from greet')
+	
+} catch (error) {
+	console.log(error)
+	
+}
+  }
+
 	return {
 		greetMessage,
 		setGreetedNamelist,
@@ -107,7 +116,7 @@ module.exports = function Greetings(pool) {
 		insertToTable,
 		countNames,
 		displayAll,
-        namesAndCounter
-
+        namesAndCounter,
+removeName
 	}
 }

@@ -93,6 +93,11 @@ res.render('counter',{
 counterPerPerson : namesList.counter
 })
 })
+app.get('/reset', async function(req,res){
+await greets.removeName()
+  res.redirect('/')
+
+})
 
 const PORT = process.env.PORT || 2088
 app.listen(PORT, function () {
