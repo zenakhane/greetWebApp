@@ -16,6 +16,7 @@ if (process.env.DATABASE_URL && !local) {
   useSSL = true;
 }
 
+
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:codex123@localhost:5432/mygreet';
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -86,8 +87,9 @@ app.get('/names', async function (req, res) {
 app.get('/counter/:nameVal', async function(req,res){
   var name = req.params.nameVal
   console.log(name)
-  console.log( await greets.namesAndCounter(name) + "erfghjerty")
+  // console.log( await greets.namesAndCounter(name) + "erfghjerty")
   var namesList = await greets.namesAndCounter(name)
+  // console.log(namesList + 'sexrdctfvgybhjn')
 res.render('counter',{
   name : name,
 counterPerPerson : namesList.counter
@@ -96,10 +98,9 @@ counterPerPerson : namesList.counter
 app.get('/reset', async function(req,res){
 await greets.removeName()
   res.redirect('/')
-
 })
 
-const PORT = process.env.PORT || 2088
+const PORT = process.env.PORT || 2087
 app.listen(PORT, function () {
   console.log("App started at port:", PORT)
 });

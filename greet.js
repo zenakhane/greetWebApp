@@ -59,7 +59,7 @@ module.exports = function Greetings(pool) {
 			if (nameAdd.rowCount == 0) {
 				await pool.query('insert into greet (name,counter) values ($1,$2)', [name, 1])
 			} else{
-              await pool.query('update greet set counter = counter +1 where name= $', [name])
+              await pool.query('update greet set counter = counter +1 where name= $1', [name])
             }
 
 		} catch (error) {
@@ -89,6 +89,7 @@ module.exports = function Greetings(pool) {
 	}
 
   async function namesAndCounter(name){
+	  console.log(name)
       try { var displayName = await pool.query('select * from greet where name =$1', [name])
           return displayName.rows[0]
       } catch (error) {
