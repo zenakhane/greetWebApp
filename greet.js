@@ -53,7 +53,7 @@ module.exports = function Greetings(pool) {
 	}
 
 	async function insertToTable(name) {
-		var name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+		// var name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 		try {
 			var nameAdd = await pool.query('select name from greet where name = $1', [name])
 			if (nameAdd.rowCount == 0) {
