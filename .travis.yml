@@ -9,7 +9,7 @@ env:
   - DATABASE_URL=postgresql://postgres@localhost:5432/greet_test
 
 node_js:  
-  - "8.9.4"
+  - 14
 
 before_script:
   - psql -c 'create database  greet_test' -U postgres
