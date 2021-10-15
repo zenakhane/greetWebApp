@@ -6,14 +6,14 @@ node_js:
   
 
 env:
-  - DATABASE_URL=postgresql://postgres@localhost:5432/mygreet
+  - DATABASE_URL=postgresql://postgres@localhost:5432/mygreets
 
 node_js:  
   - "8.9.4"
 
 before_script:
-  - psql -c 'create database  mygreet;' -U postgres
-  - psql -U postgres -d mygreet -a -f mygreet.sql
+  - psql -c 'create database  mygreets;' -U postgres
+  - psql -U postgres -d mygreets -a -f mygreet.sql
 
 services:
   - postgresql
