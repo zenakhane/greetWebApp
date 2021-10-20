@@ -1,6 +1,8 @@
+const { request } = require("express");
+
 module.exports = function Greetings(pool) {
 	var namesGreetedList = []
-	var nameGreetNow = 0
+	var nameGreetNow = 0	
 
 	function greetMessage(theName, lang) {
 		var theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
@@ -13,26 +15,6 @@ module.exports = function Greetings(pool) {
 			return "Sawubona, " + theName;
 		}
 	}
-
-	// before database for counter 
-	// function setNames(theName) {
-	//     if (namesGreetedList[theName] === undefined) {
-	//         namesGreetedList[theName] = 1
-
-	//     } else {
-	//         namesGreetedList[theName]++
-	//     }
-	// }
-
-
-	function setNameCount() {
-		return namesGreetedList.length;
-	}
-
-	function setGreetedNamelist(theName) {
-		namesGreetedList = theName
-	}
-
 	function getGreetedNamesList() {
 		return namesGreetedList
 	}
@@ -45,8 +27,6 @@ module.exports = function Greetings(pool) {
        
 		if (theName == '' && lang == undefined) {
 			return 'Please enter a name and select a language'
-		} else if (theName == '') {
-			return 'No name entered!!'
 		} else if (lang == undefined) {
 			return 'Please select a language'
 		}
@@ -56,10 +36,10 @@ module.exports = function Greetings(pool) {
 		// var name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 		try {
 			var nameAdd = await pool.query('select name from greet where name = $1', [name])
-			if (nameAdd.rowCount == 0) {
+			if (nameAdd.rows == 0) {
 				await pool.query('insert into greet (name,counter) values ($1,$2)', [name, 1])
 			} else{
-              await pool.query('update greet set counter = counter +1 where name= $1', [name])
+              await pool.query('update greet set counter = counter +1 where name = $1', [name])
             }
 
 		} catch (error) {
@@ -68,10 +48,9 @@ module.exports = function Greetings(pool) {
 		}
 	}
 	async function countNames() {
-
 		try {
-			var countAdd = await pool.query('select * from greet')
-			return countAdd.rowCount
+			var countAdd = await pool.query('select  counter(*) from greet')
+			return countAdd.rowsCount
 		} catch (error) {
 			console.log(error)
 
@@ -100,7 +79,7 @@ module.exports = function Greetings(pool) {
 
   async function removeName(){
 try {await pool.query('delete from greet')
-	
+ return 'deleting database'
 } catch (error) {
 	console.log(error)
 	
@@ -109,15 +88,13 @@ try {await pool.query('delete from greet')
 
 	return {
 		greetMessage,
-		setGreetedNamelist,
-		getGreetedNamesList,
 		getnameGreetedNow,
-		setNameCount,
+		getGreetedNamesList,
 		greetErrors,
 		insertToTable,
 		countNames,
 		displayAll,
         namesAndCounter,
-removeName
+        removeName
 	}
 }

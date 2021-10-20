@@ -2,17 +2,14 @@
 
 .name11 {
 	border-radius: 30px;
-	/* font-size: 100%; */
+	
 	
 }
 
 .languages input[type="radio"] {
 	width: 15px;
-	/* background-color: linen; */
 }
-.heading {
-	/* background-color: linen; */
-}
+
 
 body {
 	text-align: center;

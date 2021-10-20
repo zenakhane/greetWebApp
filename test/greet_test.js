@@ -14,8 +14,6 @@ const pool = new Pool({
     connectionString
 });
 
-// const greeted = Greetings1(pool)
-
 describe('Counter', function () {
 
     beforeEach(async function () {
@@ -66,6 +64,84 @@ describe('Counter', function () {
 
         let mygreet = await message.countNames();
         assert.equal(2, mygreet);
+    });
+
+    it('Should not count a name twice', async function () {
+        let message = Greetings1(pool);
+        await message.insertToTable({
+            name: 'Zena',
+           
+        });
+        await message.insertToTable({
+            name: 'Zena',
+           
+        });
+        await message.insertToTable({
+            name: 'thato',
+           
+        });
+
+
+        let mygreet = await message.countNames();
+        assert.equal(2, mygreet);
+    });
+    it('Should not count a name twice', async function () {
+        let message = Greetings1(pool);
+        await message.insertToTable({
+            name: 'Zena',
+           
+        });
+        await message.insertToTable({
+            name: 'Zena',
+           
+        });
+        await message.insertToTable({
+            name: 'thato',
+           
+        });
+
+
+        let mygreet = await message.countNames();
+        assert.equal(2, mygreet);
+    });
+    it('Should greet a name ', async function () {
+        let message = Greetings1(pool);
+        await message.namesAndCounter({
+            name: 'Zena',
+           
+        });
+        await message.namesAndCounter({
+            name: 'Lilly',
+           
+        });
+        await message.namesAndCounter({
+            name: 'thato',
+           
+        });
+
+
+        let mygreet = await message.displayAll
+        ();
+        assert.equal(3, mygreet);
+    });
+    it('Should clear all names in database', async function () {
+        let message = Greetings1(pool);
+        await message.removeName({
+            name: 'Zena',
+           
+        });
+        await message.removeName({
+            name: 'Lakhe',
+           
+        });
+        await message.removeName({
+            name: 'thato',
+           
+        });
+
+
+        let mygreet = await message.insertToTable();
+        assert.equal(null, mygreet);
     });
     after(function () {
         pool.end();
