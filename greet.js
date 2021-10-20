@@ -82,7 +82,7 @@ module.exports = function Greetings(pool) {
   }
 
   async function removeName(){
-await pool.query('delete from greet')
+await pool.query('delete  from greet')
   }
 
 	return {

@@ -124,22 +124,21 @@ describe('Counter', function () {
     });
     it('Should clear all names in database', async function () {
         let message = Greetings1(pool);
-        await message.removeName({
+        await message.insertToTable({
             name: 'Zena',
            
         });
-        await message.removeName({
+        await message.insertToTable({
             name: 'Lakhe',
            
         });
-        await message.removeName({
+        await message.insertToTable({
             name: 'thato',
            
         });
-
-
-        let mygreet = await message.insertToTable();
-        assert.equal(null, mygreet);
+await message.removeName()
+let mygreet = await message.displayAll();
+        assert.deepEqual([],mygreet);
     });
     after(function () {
         pool.end();
