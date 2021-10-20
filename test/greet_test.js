@@ -106,22 +106,20 @@ describe('Counter', function () {
     });
     it('Should greet a name ', async function () {
         let message = Greetings1(pool);
-        await message.namesAndCounter({
+        await message.insertToTable({
             name: 'Zena',
            
         });
-        await message.namesAndCounter({
+        await message.insertToTable({
             name: 'Lilly',
            
         });
-        await message.namesAndCounter({
+        await message.insertToTable({
             name: 'thato',
            
         });
 
-
-        let mygreet = await message.displayAll
-        ();
+        let mygreet = await message.countNames();
         assert.equal(3, mygreet);
     });
     it('Should clear all names in database', async function () {
