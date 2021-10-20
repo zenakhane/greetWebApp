@@ -51,10 +51,10 @@ app.use(session({
 app.use(flash());
 
 app.get('/', async function (req, res) {
-  req.flash('info', 'Welcome');
+  req.flash('info');
   res.render('index', {
     title: 'Home',
-    count: await greets.getGreetedNamesList()
+    count: await greets.countNames()
   })
 });
 
@@ -78,10 +78,10 @@ app.post('/', async function (req, res) {
 // route for the names greeted list
 app.get('/names', async function (req, res) {
   var greetedList = await greets.displayAll()
-  var list = greets.getGreetedNamesList()
+  // var list = greets.getGreetedNamesList()
   res.render('names', {
     names: greetedList,
-    count: list[greetedList]
+    // count: list[greetedList]
 
   })
 });
@@ -97,9 +97,14 @@ counterPerPerson : namesList.counter
 })
 
 app.get('/reset', async function (req, res) {
+try {
   await greets.removeName()
-  req.flash('info ', 'deleting from database')
+  req.flash('error', 'deleting everything on database')
   res.redirect('/')
+} catch (error) {
+  console.log(error)
+  
+}
 })
 
 const PORT = process.env.PORT || 2087

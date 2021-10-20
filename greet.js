@@ -22,7 +22,10 @@ module.exports = function Greetings(pool) {
 	function getnameGreetedNow() {
 		return nameGreetNow
 	}
-
+	function setNameCount(){
+		return namesGreetedList.length;
+	}
+	
 	function greetErrors(theName, lang) {
        
 		if (theName == '' && lang == undefined) {
@@ -48,9 +51,10 @@ module.exports = function Greetings(pool) {
 		}
 	}
 	async function countNames() {
+
 		try {
-			var countAdd = await pool.query('select  counter(*) from greet')
-			return countAdd.rowsCount
+			var countAdd = await pool.query('select * from greet')
+			return countAdd.rowCount
 		} catch (error) {
 			console.log(error)
 
@@ -78,18 +82,14 @@ module.exports = function Greetings(pool) {
   }
 
   async function removeName(){
-try {await pool.query('delete from greet')
- return 'deleting database'
-} catch (error) {
-	console.log(error)
-	
-}
+await pool.query('delete from greet')
   }
 
 	return {
 		greetMessage,
 		getnameGreetedNow,
 		getGreetedNamesList,
+		setNameCount,
 		greetErrors,
 		insertToTable,
 		countNames,

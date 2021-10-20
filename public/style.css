@@ -5,6 +5,12 @@
 	
 	
 }
+.welcome{
+	color: cadetblue;
+}
+.clear{
+	color: cadetblue;
+}
 
 .languages input[type="radio"] {
 	width: 15px;
