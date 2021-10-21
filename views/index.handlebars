@@ -10,58 +10,57 @@
 </head>
 
 <body>
-   
+
    <div class="error">
       {{errors}}
    </div>
 
-   <div class="nameBox">
-      <h2>Greetings  WebApp </h2><br><br>
 
-
-      <form action="/" method="POST">
+   <h2>Greetings WebApp </h2><br>
+   <form action="/" method="POST">
       {{#if messages.info }}
       <div class="welcome">
-<h3>{{messages.info}}</h3>
+         <h3>{{messages.info}}</h3>
       </div>
       {{/if}}
-
-       {{#if messages.error }}
+      {{#if messages.error }}
       <div class="clear">
-<h3>{{messages.error}}</h3>
+         <h3>{{messages.error}}</h3>
       </div>
       {{/if}}
-
-       <span class="countered">
+<div class="greetme">
+         {{greet}}
+      </div>
+      <div class="container">
+         <div class="nameBox">
+            <label for="name11"> Enter a name here:</label>
+            <input type="text" id="name11" name="nameVal" value="" class="name11">
+            <span class="countered">
                Counter:
                {{count}}
-               
-            </span><br><br>
-         <label for="name11"> Enter a name here:</label>
-         <input type="text" id="name11" name="nameVal" value="" class="name11">
-         <br><br><br>
-         <div class="languages">
-            <input type="radio" id="English" name="language" value="English">
-            <label for="language">English</label>
-            <input type="radio" id="IsiXhosa" name="language" value="IsiXhosa">
-            <label for="language">IsiXhosa</label>
-            <input type="radio" id="IsiZulu" name="language" value="IsiZulu">
-            <label for="language">IsiZulu</label><br><br>
-            <button type="submit" class="Greet_me">Greet here</button><br><br>
+            </span><br>
          </div>
-   </div>
-   </form>
-   
-   <div class="greetingBox">
-    <a href="/reset"><button type="button"  class="reset">Reset</button></a><br><br>
-     
-     
-      <div class="greetList">
-         <a href="/names">Names Greeted</a>
       </div>
-   </div><br><br>
-   <div class="greetme">
-       {{greet}} 
+
+      <br>
+      <div class="languages">
+         <input type="radio" id="English" name="language" value="English">
+         <label for="language">English</label>
+         <input type="radio" id="IsiXhosa" name="language" value="IsiXhosa">
+         <label for="language">IsiXhosa</label>
+         <input type="radio" id="IsiZulu" name="language" value="IsiZulu">
+         <label for="language">IsiZulu</label><br><br>
+      </div>
+      <button type="submit" class="Greet_me">Greet here</button><br><br>
+      
+   </form>
+
+   <div class="greetingBox">
+      <a href="/reset"><button type="button" class="reset">Reset here</button></a><br>
+   </div><br>
+
+   <div class="greetList">
+      <a href="/names"><button type="button">Names Greeted</button></a>
    </div>
 </body>
 

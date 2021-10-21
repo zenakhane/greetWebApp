@@ -1,8 +1,7 @@
 const { request } = require("express");
 
 module.exports = function Greetings(pool) {
-	var namesGreetedList = []
-	var nameGreetNow = 0	
+	
 
 	function greetMessage(theName, lang) {
 		var theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
@@ -15,16 +14,8 @@ module.exports = function Greetings(pool) {
 			return "Sawubona, " + theName;
 		}
 	}
-	function getGreetedNamesList() {
-		return namesGreetedList
-	}
+	
 
-	function getnameGreetedNow() {
-		return nameGreetNow
-	}
-	function setNameCount(){
-		return namesGreetedList.length;
-	}
 	
 	function greetErrors(theName, lang) {
        
@@ -87,9 +78,6 @@ await pool.query('delete  from greet')
 
 	return {
 		greetMessage,
-		getnameGreetedNow,
-		getGreetedNamesList,
-		setNameCount,
 		greetErrors,
 		insertToTable,
 		countNames,
