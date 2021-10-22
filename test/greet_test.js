@@ -136,10 +136,29 @@ describe('Counter', function () {
             name: 'thato',
            
         });
-await message.removeName()
-let mygreet = await message.displayAll();
+        await message.removeName()
+       let mygreet = await message.displayAll();
         assert.deepEqual([],mygreet);
     });
+it('display a message if language has been selected', function(){
+    let message = Greetings1(pool);
+    message.insertToTable({
+        name: ' '
+    })
+  let mygreet  =  message.greetErrors()
+  assert.equal('Please select a language',mygreet)
+})
+it('Should show name greeted in IsiXhosa', function(){
+    let message = Greetings1(pool);
+    message.insertToTable('Zena')
+    assert.equal(message.greetMessage("Zena", "IsiXhosa"), 'Molo, Zena',);
+
+})
+it('Should show name greeted in english', function () {
+    let message = Greetings1(pool)
+    message.insertToTable('Zena')
+    assert.equal(message.greetMessage("Zena", "English"), 'Hello, Zena',);
+});
     after(function () {
         pool.end();
     });

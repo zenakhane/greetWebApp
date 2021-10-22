@@ -4,8 +4,7 @@ module.exports = function Greetings(pool) {
 	
 
 	function greetMessage(theName, lang) {
-		var theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
-		
+		// var theName = theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
 		if (lang === "English") {
 			return "Hello, " + theName;
 		} else if (lang === "IsiXhosa") {
@@ -15,11 +14,8 @@ module.exports = function Greetings(pool) {
 		}
 	}
 	
-
-	
 	function greetErrors(theName, lang) {
-       
-		if (theName == '' && lang == undefined) {
+       if (theName == '' && lang == undefined) {
 			return 'Please enter a name and select a language'
 		} else if (lang == undefined) {
 			return 'Please select a language'
