@@ -140,14 +140,7 @@ describe('Counter', function () {
        let mygreet = await message.displayAll();
         assert.deepEqual([],mygreet);
     });
-    it('Should display all countered names', async function () {
-        let message = Greetings1(pool);
-        await message.countNames({
-            name: 'Zena'  
-        })
-       let mygreet = await message.namesAndCounter();
-        assert.equal('Zena',mygreet);
-    });
+ 
 it('display a message if language has been selected', function(){
     let message = Greetings1(pool);
     message.insertToTable({
