@@ -34,30 +34,31 @@ describe('Counter', function () {
     it('Should count how many names have been greeted', async function () {
         let message = Greetings1(pool);
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
         });
         await message.insertToTable({
-            name: 'Lakhe',
+            name: 'Lakhe'
         });
         await message.insertToTable({
-            name: 'Bob',
+            name: 'Bob'
         });
         let mygreet = await message.countNames();
         assert.equal(3, mygreet);
     })
 
+
     it('Should not count a name twice', async function () {
         let message = Greetings1(pool);
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'thato',
+            name: 'thato'
            
         });
         let mygreet = await message.countNames();
@@ -67,15 +68,15 @@ describe('Counter', function () {
     it('Should not count a name twice', async function () {
         let message = Greetings1(pool);
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'thato',
+            name: 'thato'
            
         });
         let mygreet = await message.countNames();
@@ -84,15 +85,15 @@ describe('Counter', function () {
     it('Should not count a name twice', async function () {
         let message = Greetings1(pool);
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'thato',
+            name: 'thato'
            
         });
         let mygreet = await message.countNames();
@@ -101,15 +102,15 @@ describe('Counter', function () {
     it('Should greet a name ', async function () {
         let message = Greetings1(pool);
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'Lilly',
+            name: 'Lilly'
            
         });
         await message.insertToTable({
-            name: 'thato',
+            name: 'thato'
            
         });
 
@@ -119,15 +120,15 @@ describe('Counter', function () {
     it('Should clear all names in database', async function () {
         let message = Greetings1(pool);
         await message.insertToTable({
-            name: 'Zena',
+            name: 'Zena'
            
         });
         await message.insertToTable({
-            name: 'Lakhe',
+            name: 'Lakhe'
            
         });
         await message.insertToTable({
-            name: 'thato',
+            name: 'thato'
            
         });
         await message.removeName()
@@ -159,7 +160,6 @@ it('Should count each name greeted ', async function () {
     await message.namesAndCounter({
         name: 'Zena'  
     });
-   
    let mygreet =  await message.countNames()
     assert.equal(1, mygreet);
 });
