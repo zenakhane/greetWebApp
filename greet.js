@@ -60,7 +60,7 @@ module.exports = function Greetings(pool) {
 
   async function namesAndCounter(name){
 	  console.log(name)
-      try { var displayName = await pool.query('select * from greet where name =$1', [name])
+      try { var displayName = await pool.query('select * from greet where name = $1', [name])
           return displayName.rows[0]
       } catch (error) {
           console.log(error)

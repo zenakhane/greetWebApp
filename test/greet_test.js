@@ -1,6 +1,7 @@
 let assert = require("assert");
 let Greetings1 = require("../greet");
 const pg = require("pg");
+const { ok } = require("assert");
 const Pool = pg.Pool;
 
 let useSSL = false;
@@ -160,6 +161,17 @@ it('Should show name greeted in english', function () {
     message.insertToTable('Zena')
     assert.equal(message.greetMessage("Zena", "English"), 'Hello, Zena',);
 });
+it('Should count each name greeted ', async function () {
+    let message = Greetings1(pool);
+    await message.namesAndCounter({
+        name: 'Zena',
+       
+    });
+   
+    let mygreet = await message.insertToTable();
+    ok(3, mygreet);
+});
+
     after(function () {
         pool.end();
     });
