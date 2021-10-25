@@ -46,7 +46,6 @@ describe('Counter', function () {
         assert.equal(3, mygreet);
     })
 
-
     it('Should not count a name twice', async function () {
         let message = Greetings1(pool);
         await message.insertToTable({
@@ -61,8 +60,6 @@ describe('Counter', function () {
             name: 'thato',
            
         });
-
-
         let mygreet = await message.countNames();
         assert.equal(2, mygreet);
     });
@@ -81,8 +78,6 @@ describe('Counter', function () {
             name: 'thato',
            
         });
-
-
         let mygreet = await message.countNames();
         assert.equal(2, mygreet);
     });
@@ -100,8 +95,6 @@ describe('Counter', function () {
             name: 'thato',
            
         });
-
-
         let mygreet = await message.countNames();
         assert.equal(2, mygreet);
     });
@@ -164,12 +157,11 @@ it('Should show name greeted in english', function () {
 it('Should count each name greeted ', async function () {
     let message = Greetings1(pool);
     await message.namesAndCounter({
-        name: 'Zena',
-       
+        name: 'Zena'  
     });
    
-    let mygreet = await message.insertToTable();
-    ok(3, mygreet);
+   let mygreet =  await message.countNames()
+    assert.equal(1, mygreet);
 });
 
     after(function () {
